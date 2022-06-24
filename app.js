@@ -1,9 +1,11 @@
 const http = require('http');
 const express = require('express');
-const c = require('colors')
+const c = require('colors');
 
 const app = express();
 const server = http.createServer(app);
+
+app.use(express.json());
 
 app.get('/', (req, res) => {
     res.json({ 
@@ -12,6 +14,7 @@ app.get('/', (req, res) => {
         isAuthenticate: 'unavailable'
     })
 });
+
 
 const listener =  server.listen(process.env.PORT || 3000, function() {
     console.log(
