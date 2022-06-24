@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
 
+let connectDB = process.env.DB!
+
+
 mongoose
-  .connect(process.env.DB)
+  .connect(connectDB)
   .then(() => console.log('Connected to Database'))
   .catch((err) => console.log(err));
